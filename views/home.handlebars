@@ -1,49 +1,89 @@
 <section class="home-splash">
-    <div>
+    <div class="split">
         {{!-- find a place --}}
         <section>
             <h1>Book a Place to Stay!</h1>
-
-            <label for="place">Where</label>
-            <input type="text" id="place" value="Location?">
-            <ul class"dropdown">
-                <li>Toronto,CA</li>
-                <li>Vancover,CA</li>
-                <li>Montreal,CA</li>
-                <li>Ottawa,CA</li>
-            </ul>
-
+            <div class="dropdown">
+                <label for="place">Where</label>
+                <input type="text" id="place" value="Location?" class="bar">
+                <ul class="dropdown-cont">
+                    <li>Toronto,CA</li>
+                    <li>Vancover,CA</li>
+                    <li>Montreal,CA</li>
+                    <li>Ottawa,CA</li>
+                </ul>
+            </div>
+            
             <div>
-                <label for="check-in">Check-In</label>
-                <input type="text" id="check-in" value="dd-mm-yyyy">
+                <label for="check-in" class="label-fix">Check-In</label>
+                <input type="text" id="check-in" value="dd-mm-yyyy" class="bar">
 
-                <label for="check-out">Check-In</label>
-                <input type="text" id="check-out" value="dd-mm-yyyy">
+                <label for="check-out" class="label-fix">Check-In</label>
+                <input type="text" id="check-out" value="dd-mm-yyyy" class="bar">
             </div>
 
-            <label for="people">How many people?</label>
-            <input type="text" id="people" value"1">
-            <ul class"dropdown">
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
-                <li>5</li>
-                <li>6</li>
-            </ul>
+            <div class="dropdown">
+                <label for="people" class="label-fix">How many people?</label>
+                <input type="text" id="people" value="1" class="bar">
+                <ul class="dropdown-cont">
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                </ul>
+            </div>
+
+            <input type="submit" value="Search" class="butt">
+
         </section>
 
         {{!-- login --}}
         <section>
-            <h1>Login</h1>
-            <form action="/login" method="POST">
+            <div class="middle">
+                <h1>Login</h1>
+                <form action="/login" method="POST" class="label-fix">
 
-            <label for="username">Check-In</label>
-            <input type="text" id="username" value="Username">
+                    <label for="username" class="label-fix">Username</label>
+                    <input type="text" id="username" value="Username" class="bar">
 
-            <label for="password">Check-In</label>
-            <input type="text" id="password" value="Password">
-            </form>
+                    <label for="password" class="label-fix">Password</label>
+                    <input type="text" id="password" value="Password" class="bar">
+
+                    <input type="submit" value="Log In" class="butt">
+                    <p class="acc-owned">dont have an account? <a href="registration">Sign Up!</a></p>
+                </form>
+            </div>
+
         </section>
     </div>
 
 </section>
+
+<section class="promo">
+    <h1 class="promo-head">Toronto Experience Package </h1>
+    <section class="promo-content">
+        <div class="promo-img">
+
+        </div>
+        <div>
+            <h2>Stay in the Heart of Toronto</h2>
+            <p>This winter special is an all inclusive 3 week stay 	in the heart of down town Toronto located at Motion, 570 Bay St, Toronto, ON M5G 0B2. this location is conveniently located near the Eaton Center and other activities that bring loads of fun. this is a 3 bedroom apartment with 2 bathrooms and a spacious kitchen .this deal is for 4 people maximum at a 3 week stay for a total of 2,000$. 2 person minimum, no children.	</p>
+            <a href="">Learn More</a>
+        </div>
+    </section>
+</section>
+
+<section class="info">
+    <section class="stay">
+        <h1><i class="fas fa-plane"></i> Stay</h1>
+        <P>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium dolor sit incidunt aliquam asperiores perferendis dolorum sequi aut? Labore excepturi hic quo accusantium nemo cupiditate quibusdam necessitatibus rerum quas? Consectetur. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed dignissimos est doloribus quasi eligendi expedita, cupiditate tempore iusto illum quis doloremque rerum delectus id accusantium quos mollitia atque at! Culpa?</P>
+    </section>
+
+    <section class="host">
+        <h1><i class="fas fa-home"></i></i> Host</h1>
+        <P>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium dolor sit incidunt aliquam asperiores perferendis dolorum sequi aut? Labore excepturi hic quo accusantium nemo cupiditate quibusdam necessitatibus rerum quas? Consectetur. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed dignissimos est doloribus quasi eligendi expedita, cupiditate tempore iusto illum quis doloremque rerum delectus id accusantium quos mollitia atque at! Culpa?</P>
+    </section>
+
+</section>
+<iframe class="info-vid" src="https://www.youtube.com/embed/wuF2nI1Ugcc"></iframe>
