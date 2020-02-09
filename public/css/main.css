@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700&display=swap');
+body{
+    font-family: 'Raleway', sans-serif;
+    background-color: white;
+}
+.back-color{
+    background-color: #FF5A5F;
+    padding: 0.5rem 2rem;
+}
+.top-rounder{
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+}
+
+.bottom-rounder{
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+}
+
+.header-grid{
+    display: grid;
+    grid-template-columns: 4fr 4fr;
+}
+
+.header-grid > nav > ul{
+    padding-top: 1.5rem;
+}
+
+.line-up{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    vertical-align: middle;
+}
+
+.line-up > li {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 2rem;
+
+}
+
+.footer-grid{
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+}
+
+.foot-links{
+    padding-top: 1rem;
+    color: white;
+    font-size: 1.2rem;
+
+}
+
+.bottom{
+    position: relative;
+    bottom: 0em;
+    width: 100%;
+}
+
+.logo-beef{
+    font-size: 5rem;
+    color: white;
+}
+
+.left-align{
+    display: inline-block;
+    text-align: right;
+}
+
+.socials{
+    padding-top: 1rem;
+    color: white;
+    font-size: 6rem;
+}
+
+/* ----------HOME------------ */
+
+.home-splash{
+
+    margin: 2rem;
+    height: 40rem;
+    background-image: url("/img/home-splash.jpg"); 
+    background-repeat: no-repeat;
+    background-size:cover;
+    border-radius: 2rem;
+    
+}

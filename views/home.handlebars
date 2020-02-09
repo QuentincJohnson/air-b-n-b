@@ -1,0 +1,49 @@
+<section class="home-splash">
+    <div>
+        {{!-- find a place --}}
+        <section>
+            <h1>Book a Place to Stay!</h1>
+
+            <label for="place">Where</label>
+            <input type="text" id="place" value="Location?">
+            <ul class"dropdown">
+                <li>Toronto,CA</li>
+                <li>Vancover,CA</li>
+                <li>Montreal,CA</li>
+                <li>Ottawa,CA</li>
+            </ul>
+
+            <div>
+                <label for="check-in">Check-In</label>
+                <input type="text" id="check-in" value="dd-mm-yyyy">
+
+                <label for="check-out">Check-In</label>
+                <input type="text" id="check-out" value="dd-mm-yyyy">
+            </div>
+
+            <label for="people">How many people?</label>
+            <input type="text" id="people" value"1">
+            <ul class"dropdown">
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+            </ul>
+        </section>
+
+        {{!-- login --}}
+        <section>
+            <h1>Login</h1>
+            <form action="/login" method="POST">
+
+            <label for="username">Check-In</label>
+            <input type="text" id="username" value="Username">
+
+            <label for="password">Check-In</label>
+            <input type="text" id="password" value="Password">
+            </form>
+        </section>
+    </div>
+
+</section>
