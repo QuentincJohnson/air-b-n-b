@@ -35,20 +35,22 @@
             </div>
 
             <input type="submit" value="Search" class="butt">
-
         </section>
 
         {{!-- login --}}
         <section>
             <div class="middle">
                 <h1>Login</h1>
+                {{#each homeMsg}}
+                    <div class="error-msg">{{this}}</div>
+                {{/each}}
                 <form action="/login" method="POST" class="label-fix">
 
-                    <label for="username" class="label-fix">Username</label>
-                    <input type="text" id="username" value="Username" class="bar">
+                    <label for="Username" class="label-fix">Username</label>
+                    <input type="text" id="username" value="Username" name="Username" class="bar">
 
-                    <label for="password" class="label-fix">Password</label>
-                    <input type="text" id="password" value="Password" class="bar">
+                    <label for="Password" class="label-fix">Password</label>
+                    <input type="text" id="password" value="Password" name="Password" class="bar">
 
                     <input type="submit" value="Log In" class="butt">
                     <p class="acc-owned">dont have an account? <a href="registration">Sign Up!</a></p>
@@ -57,10 +59,9 @@
 
         </section>
     </div>
-
 </section>
 
-<section class="promo">
+<section class="promo mobile-pad">
     <h1 class="promo-head">Toronto Experience Package </h1>
     <section class="promo-content">
         <div class="promo-img">

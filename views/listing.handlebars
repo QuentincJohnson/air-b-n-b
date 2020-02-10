@@ -1,1 +1,14 @@
-<h1>listing</h1>
+<h1 class="list-title">Listings</h1>
+<Section class="list-grid">
+    {{#each places}}
+    <div> 
+        <img src="{{this.img}}" alt="place-img" class="list-img">   
+        <div>{{this.location}}</div>
+        <div class="list-name">{{this.name}}</div>
+        <section>
+            <div class="list-price"><strong>{{this.price}}$</strong>/Night</div>
+            <div class="list-rateing"><i class="fas fa-star star"></i>{{this.rateing}}</div>
+        </section>
+    </div>
+    {{/each}}
+</Section>

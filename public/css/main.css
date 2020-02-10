@@ -36,7 +36,7 @@ body{
     text-align: center;
     color: white;
     font-weight: bold;
-    font-size: 1.8rem;
+    font-size: 2rem;
 
 }
 
@@ -48,8 +48,7 @@ body{
 .foot-links{
     padding-top: 1rem;
     color: white;
-    font-size: 1.2rem;
-
+    font-size: 2rem;
 }
 
 .bottom{
@@ -59,7 +58,7 @@ body{
 }
 
 .logo-beef{
-    font-size: 5rem;
+    font-size: 3rem;
     color: white;
 }
 
@@ -230,7 +229,7 @@ body{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 8rem;
-    margin: 8rem;
+    margin: 4rem;
 }
 
 .info > section > h1{
@@ -257,3 +256,147 @@ body{
     display: block;
     text-align: center;
 }
+
+/* ----------LISTINGS--------- */
+
+.list-title{
+    text-align: center;
+    padding-top: 1rem;;
+    font-size: 2rem;
+    font-weight: bold;
+    border-bottom: 2px solid #FF5A5F;
+    margin: 0rem 30rem;
+}
+.list-grid{
+    margin: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1rem;
+}
+
+.list-img{
+    border-radius: 2rem;
+    padding: 1rem;
+}
+
+.list-grid > div > div{
+    padding-left: 1rem;
+}
+
+.star{
+    display: inline-block;
+    color: #FF5A5F;
+    font-size: 1.2rem;
+}
+
+.list-price > strong{
+    
+    font-weight: bold;
+    
+}
+
+.list-price{
+    padding-left: 1rem;
+}
+
+.list-rateing{
+    display: inline-block;
+    text-align: right;
+    padding-left: 1rem;
+}
+
+.list-name{
+    font-size: 1.3rem;
+    font-weight: normal;
+}
+
+/* -----Registration --------*/
+
+
+.reg-style{
+    margin: 2rem 2rem;
+}
+
+.name-grd{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+}
+
+.error-msg{
+    text-align: center;
+    color: red;
+    font-weight: bold;
+}
+
+.space{
+    padding-bottom: 1rem;
+}
+
+
+/* ============MOBILE=========== */
+@media screen and (max-width: 1024px) {
+    .home-splash{
+        background-image: none;
+        height: 80%;
+    }
+
+    .split{
+        display:block;
+    }
+    .header-grid{
+        grid-template-columns: 1fr 3fr;
+    }
+    .socials{
+        font-size: 1.5rem;
+    }
+    .foot-links{
+        font-size: 1rem;
+    }
+    .line-up > li{
+        font-size: 1rem;
+    }
+    .footer-grid{
+        grid-template-columns: 3fr 1fr 3fr;
+    }
+
+    .promo{
+        display: block;
+    }
+    .promo-img{
+        background-image: none;
+        box-sizing: content-box;
+    }
+    .info{
+        display: block;
+    }
+    .info-vid{
+        height: 15rem;
+        width: 90%;
+        margin: 0% 5%;
+        margin-bottom: 2rem;
+    }
+
+
+    /* listings */
+
+    .list-title{
+        margin: 2rem 8rem;
+    }
+    .list-grid{
+        display: block;
+    }
+ 
+    /* regg */
+
+    .name-grd{
+        display: block;
+    }  
+    .reg-style{
+        padding: 6rem 0rem;
+    }
+
+
+}
+

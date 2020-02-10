@@ -1,1 +1,29 @@
-<h1>registration</h1>
+<h1 class="list-title space">Create an Account</h1>
+{{#each messages}}
+    <div class="error-msg">{{this}}</div>
+{{/each}}
+ <div class="reg-style">
+    <form method="POST" action="/reg">
+        <div class="name-grd">
+           <div>
+                <label for="FirstName">First Name</label>
+                <input type="text" name="FirstName" class="bar">
+           </div> 
+           <div>
+                <label for="LastName">Last Name</label>
+                <input type="text" name="LastName" class="bar">
+           </div>
+        </div>
+
+        <label for="Email">Email</label>
+        <input type="text" name="Email" class="bar">
+
+        <label for="PhoneNumber">Phone Number</label>
+        <input type="text" name="PhoneNumber" class="bar">
+
+        <label for="Password">Password</label>
+        <input type="text" name="Password" class="bar" value="Password must be longer than 6 Charachters">
+
+        <input type="submit" value="Sign Up!" class="butt"> 
+    </form>
+ </div>
