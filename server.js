@@ -12,8 +12,8 @@ app.use(bodyParser.urlencoded({ extended: false }))//awknowladges body parser
 app.use(express.static("public")) //sets public as a static folder
 
 
-//server port
-const PORT = 3000;
+//server port //enviernment variables lets a port be injected my heroku
+const PORT = process.env.PORT || 3000;
 app.listen(PORT,() =>{
 
     console.log('server running')
