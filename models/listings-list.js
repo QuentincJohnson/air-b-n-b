@@ -1,4 +1,4 @@
-const listing = 
+const listings = 
 {
     places:[
     {
