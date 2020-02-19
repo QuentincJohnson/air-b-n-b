@@ -35,7 +35,7 @@ app.get("/registration", (req,res)=>{
 
 app.get("/listing", (req,res)=>{
 
-    const listingss = [
+    const listings = [
         {
             location: "Canada,ON",
             name:"Downtown Condo with View",
@@ -83,7 +83,7 @@ app.get("/listing", (req,res)=>{
 
     res.render("listing", {
         title: "Air BnB Listing",
-        places: listingss
+        places: listings.places
     });
 });
 
