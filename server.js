@@ -23,8 +23,14 @@ app.listen(PORT,() =>{
 });
 
 app.get("/", (req,res)=>{
+    const ftl = []
+    ftl.push(listMod.places[0]);
+    ftl.push(listMod.places[1])
+    ftl.push(listMod.places[2])
+
     res.render("home", {
-        title: "Air BnB home"
+        title: "Air BnB home",
+        places: ftl
     });
 });
 

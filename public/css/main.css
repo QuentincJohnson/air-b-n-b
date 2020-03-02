@@ -274,6 +274,12 @@ body{
     grid-template-rows: 1fr 1fr;
     gap: 1rem;
 }
+.ft{
+    margin: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+}
 
 .list-img{
     border-radius: 2rem;
