@@ -81,8 +81,8 @@ router.post("/reg",(req,res)=>{
         })
     }
     else {
-        const accountSid = 'AC9c1b2a20dbb2c09e5fb28eed38b745ca';
-        const authToken = '708ebe97288e22aeed919e0bd6c14284';
+        const accountSid = process.env.TWILIO_SID;
+        const authToken = process.env.TWILIO_TOKEN;
         const client = require('twilio')(accountSid, authToken);
 
         client.messages
@@ -94,7 +94,16 @@ router.post("/reg",(req,res)=>{
             .then(message => {
                 console.log(message.sid);
                 res.render("general/home");
-            });           
+            });
+        const sgMail = require('@sendgrid/mail');
+        sgMail.setApiKey(process.env.SENDGRID_KEY);
+        const msg = {
+            to: `${req.body.Email}`,
+            from: "AirBnB@Send.org",
+            subject: "Continue sign up",
+            html: '<strong> to continue signup process click link ______________</strong>',
+        };
+        sgMail.send(msg);          
     }
 });
 

@@ -1,7 +1,7 @@
 const express = require("express");//uses express
 const exphbs  = require('express-handlebars');// uses express handlebars
 const bodyParser = require('body-parser');// uses body parser
-
+require('dotenv').config({path:"./config/keys.env"})//environmetntal variable req dosent need a constant
 
 const app = express();
 
@@ -14,7 +14,7 @@ app.use(express.static("public")) //sets public as a static folder
 
 
 //server port //enviernment variables lets a port be injected my heroku
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 app.listen(PORT,() =>{
 
     console.log('server running')
