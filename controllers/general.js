@@ -110,7 +110,7 @@ router.post("/reg",(req,res)=>{
         };
         sgMail.send(msg)
         .then(()=>{
-            res.render("dash");
+            res.render("general/dash");
         });          
     }
 });
