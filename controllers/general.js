@@ -99,7 +99,6 @@ router.post("/reg",(req,res)=>{
             })
             .then(message => {
                 console.log(message.sid);
-                res.render("general/dash");
             });
         const sgMail = require('@sendgrid/mail');
         sgMail.setApiKey(process.env.SENDGRID_KEY);
@@ -109,7 +108,10 @@ router.post("/reg",(req,res)=>{
             subject: "Continue sign up",
             html: '<strong> to continue signup process click link ______________</strong>',
         };
-        sgMail.send(msg);          
+        sgMail.send(msg)
+        .then(()=>{
+            res.render("dash");
+        });          
     }
 });
 
