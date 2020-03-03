@@ -21,6 +21,12 @@ router.get("/login", (req,res)=>{
     });
 });
 
+router.get("/dash", (req,res)=>{
+    res.render("general/dash", {
+        title: "dashboard"
+    });
+});
+
 router.post("/login",(req,res)=>{
 
     const errors2 = []
@@ -93,7 +99,7 @@ router.post("/reg",(req,res)=>{
             })
             .then(message => {
                 console.log(message.sid);
-                res.render("general/home");
+                res.render("general/dash");
             });
         const sgMail = require('@sendgrid/mail');
         sgMail.setApiKey(process.env.SENDGRID_KEY);

@@ -58,7 +58,7 @@ body{
 }
 
 .logo-beef{
-    font-size: 3rem;
+    font-size: 5rem;
     color: white;
 }
 
@@ -246,9 +246,10 @@ body{
 }
 
 .info-vid{
+
     width: 80%;
     height: 40rem;
-    margin: 0rem 8rem;
+    margin: 2rem 8rem;
     margin-bottom: 4rem;
 }
 
@@ -340,7 +341,57 @@ body{
     padding-bottom: 1rem;
 }
 
+.section-under{
+    border-bottom: 2px solid #FF5A5F;
+    margin: 0% 10%;
+    margin-bottom: 2rem;
+}
+/* ---------------DASH---------- */
 
+.line-up-dash{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    vertical-align: middle;
+    color: black;
+    padding: 2rem 15rem;
+    padding-bottom: 3rem;
+}
+.line-up-dash > li{
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.butt-wrap{
+    display: inline-block;
+    text-align: center;
+}
+.dash-butt{
+    font-weight: bold;
+    font-size: 2rem;
+    padding:0.5rem;
+    border: 1px solid  #FF5A5F;
+    margin-left: 1rem;
+    margin:0rem 3rem;
+}
+.butt-cent{
+    margin: 3rem;
+    text-align: center;
+}
+.dash-p{
+    font-size:1.3rem;
+}
+.cent{
+    color: #FF5A5F;
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 5rem;
+}
+
+.bord{
+    border: 1px solid black;
+    border-radius: 1rem;
+    padding: 2rem;
+}
 /* ============MOBILE=========== */
 @media screen and (max-width: 1024px) {
     .home-splash{
@@ -370,7 +421,15 @@ body{
     .promo{
         display: block;
     }
+    .promo-content{
+        display:block;
+        text-align: center;
+    }
+    .ft{
+        display: block;
+    }
     .promo-img{
+        display: none;
         background-image: none;
         box-sizing: content-box;
     }
@@ -401,6 +460,14 @@ body{
     }  
     .reg-style{
         padding: 6rem 0rem;
+    }
+    /* dash */
+    .line-up-dash{
+        display: block;
+        text-align: center;
+        color: black;
+        padding: 0rem 0rem;
+        padding-bottom: 3rem;
     }
 
 
