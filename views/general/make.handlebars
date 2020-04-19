@@ -1,0 +1,44 @@
+<h1 class="list-title space">Create a Listing</h1>
+{{#each messages}}
+    <div class="error-msg">{{this}}</div>
+{{/each}}
+ <div class="reg-style">
+    <form method="POST" action="/reg-list">
+
+        <label for="title">Title</label>
+        <input type="text" name="title" class="bar" default="create a title">
+
+         <div class="name-grd">
+           <div>
+                <label for="location">Location</label>
+                <input type="text" name="location" class="bar">
+           </div> 
+           <div>
+                <label for="postal">Postal Code</label>
+                <input type="text" name="postal" class="bar">
+           </div>
+        </div>
+
+        <label for="description">Description</label>
+        <input type="text" name="discription" class="bar" default="create a title">
+
+        <div class="name-grd">
+           <div>
+                <label for="price">Price</label>
+                <input type="text" name="price" class="bar">
+           </div> 
+           <div>
+                <label>Fetured</label>
+                <select name="fetured" >
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+           </div>
+        </div>
+
+        <label>Room Image</label>
+        <input type="file" name="roomPic" id="roomPic"> 
+
+        <input type="submit" value="Sign Up!" class="butt"> 
+    </form>
+ </div>

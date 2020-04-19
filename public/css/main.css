@@ -323,6 +323,8 @@ body{
 
 .reg-style{
     margin: 2rem 2rem;
+    padding: 0rem 20rem;
+
 }
 
 .name-grd{
@@ -392,6 +394,15 @@ body{
     border-radius: 1rem;
     padding: 2rem;
 }
+
+.host-butt{
+   display: grid;
+   grid-template-columns: 1fr 1fr;;
+}
+.host-butt > li{
+    display: inline-block;
+}
+
 /* ============MOBILE=========== */
 @media screen and (max-width: 1024px) {
     .home-splash{
