@@ -2,6 +2,7 @@ const express = require("express");//uses express
 const exphbs  = require('express-handlebars');// uses express handlebars
 const bodyParser = require('body-parser');// uses body parser
 const mongoose = require('mongoose'); // uses mongoose
+const fileUpload = require("express-fileupload")
 
 
 require('dotenv').config({path:"./config/keys.env"})//environmetntal variable req dosent need a constant
@@ -30,6 +31,8 @@ app.set('view engine', 'handlebars');
 app.use(bodyParser.urlencoded({ extended: false }))//awknowladges body parser
 
 app.use(express.static("public")) //sets public as a static folder
+
+app.use(fileUpload());
 
 //connecting mongoose
 mongoose.connect(process.env.MONGO_CONNECTION, {useNewUrlParser: true, useUnifiedTopology: true})

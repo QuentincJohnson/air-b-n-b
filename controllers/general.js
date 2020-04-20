@@ -3,6 +3,9 @@ const router = express.Router();
 const userModel = require('../models/user.js');
 
 const listMod = require('../models/listings-list') //not a thiird party packge and gets special treatment add ./
+const listModel = require('../models/list.js');
+const path = require("path")
+
 
 router.get("/", (req,res)=>{
     const ftl = []
@@ -142,6 +145,57 @@ router.post("/reg",(req,res)=>
             })
         }
         console.log(errors)
+        console.log(err)  
+    })
+
+});
+
+router.post("/reg-list",(req,res)=>
+{ 
+      /*
+    rules for inserting into a mongoDB database USING MONGOOSE is to do the following 
+
+    1. you have to create an instance of model, you must pass data in the form of an object  (in this case task model (task.js))
+    2. from the instance, you call the save method
+    
+    */
+
+   const newList = {
+    //names specified must mach the names of the schema layout
+    title: req.body.title,
+    location: req.body.location,
+    postal: req.body.postal,
+    description: req.body.description,
+    price: req.body.price,
+    fetured: req.body.fetured,
+    picString: "filler"
+    }
+
+    const list = new listModel(newList);// this creates an instance of the task model schema for mongo to read in the brackets pass the datat you want inserted into the odel in the form of an object which in this case we created above
+    list.save() //asynchromus means it wil return a promis and we need to handle cases with .then/.catch //// save makes the model
+    .then(function(list) {
+        req.files.roomPic.name = `room_pic_${list._id}${path.parse(req.files.roomPic.name).ext}`; //the path lets us acsess the extention of the file
+        req.files.roomPic.mv(`public/uploads/${req.files.roomPic.name}`)//moves the file to the path specified from the foot folder
+        .then((response)=>{
+            console.log("update process")
+            listModel.updateOne({_id:list._id},{
+                picString: req.files.roomPic.name
+            })
+            .then(()=>{
+                res.redirect("/")
+            })
+            .catch(()=>{
+
+            })
+
+        })
+        .catch((err)=>{
+            console.logerr
+            
+        })
+
+    })
+    .catch( function(err) {
         console.log(err)  
     })
 

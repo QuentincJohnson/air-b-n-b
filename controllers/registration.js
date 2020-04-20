@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const userModel = require('../models/user.js');
 
+
+
 router.get("", (req,res)=>{
      res.render("general/reg", {
         title: "Air BnB registration"
@@ -13,6 +15,9 @@ router.get("/make", (req,res)=>{
       title: "Air BnB create"
    });
 });
+
+
+
 // router.post("/reg",(req,res)=>
 // { 
 //       /*

@@ -3,7 +3,7 @@
     <div class="error-msg">{{this}}</div>
 {{/each}}
  <div class="reg-style">
-    <form method="POST" action="/reg-list">
+    <form method="POST" action="/reg-list" enctype="multipart/form-data">
 
         <label for="title">Title</label>
         <input type="text" name="title" class="bar" default="create a title">
@@ -20,7 +20,7 @@
         </div>
 
         <label for="description">Description</label>
-        <input type="text" name="discription" class="bar" default="create a title">
+        <input type="text" name="description" class="bar" default="create a title">
 
         <div class="name-grd">
            <div>
