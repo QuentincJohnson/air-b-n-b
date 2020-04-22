@@ -89,6 +89,7 @@ router.put("/update/:_id",(req,res)=>{
          location: req.body.location,
          postal: req.body.postal,
          description: req.body.description,
+         fetured: req.body.fetured,
          price: req.body.price,
          picString: picString
       }
@@ -112,6 +113,18 @@ router.put("/update/:_id",(req,res)=>{
 
    
 })
+
+router.delete("/delete/:_id",(req,res)=>{
+   listModel.deleteOne({_id:req.params._id})
+    .then(function(response){
+        res.redirect("/dash")
+    })
+    .catch(function(err){
+        console.log(`error called: ${err}`)
+    })
+})
+
+
 
 // router.post("/reg",(req,res)=>
 // { 

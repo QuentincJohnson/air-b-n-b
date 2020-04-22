@@ -93,14 +93,14 @@
 <section class="section-under">
     <h1 class="list-title">Fetured</h1>
     <Section class="ft">
-    {{#each places}}
+    {{#each data}}
     <div> 
-        <img src="{{this.img}}" alt="place-img" class="list-img">   
+        <img src="uploads/{{this.picString}}" alt="place-img" class="list-img">   
         <div>{{this.location}}</div>
-        <div class="list-name">{{this.name}}</div>
+        <div class="list-name">{{this.title}}</div>
         <section>
             <div class="list-price"><strong>{{this.price}}$</strong>/Night</div>
-            <div class="list-rateing"><i class="fas fa-star star"></i>{{this.rateing}}</div>
+            <div class="list-rateing"><i class="fas fa-star star"></i>5</div>
         </section>
     </div>
     {{/each}}

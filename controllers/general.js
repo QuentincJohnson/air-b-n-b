@@ -8,18 +8,47 @@ const path = require("path")
 const isLoggedIn = require('../middleware/auth.js')
 const isAdmin = require('../middleware/adminAuth.js')
 
+router.get('/', (req,res)=>{
+    
+    listModel.find({fetured: 'yes'}) // you can search from collection for example if i wanted to pull documents with status open in the brackets write {status: 'open'}
+     .then(function(response){
+        console.log(response)
+         //filter out the response array wich will be the collection of documents of the collection specified in find(). filter out only the things we want 
+         const myList = response.map( list=>{
+ 
+ 
+             return{
+                 _id: list._id,
+                 title: list.title,
+                 location: list.location,
+                 postal: list.postal,
+                 description: list.description,
+                 price: list.price,
+                 picString: list.picString
+             }
+             
+         })
+         res.render("general/home",{
+            data: myList
+         })
+ 
+    })
+    .catch(function(response){
+ 
+    })
 
-router.get("/", (req,res)=>{
-    const ftl = []
-    ftl.push(listMod.places[0]);
-    ftl.push(listMod.places[1])
-    ftl.push(listMod.places[2])
+})
+// router.get("/", (req,res)=>{
+//     const ftl = []
+//     ftl.push(listMod.places[0]);
+//     ftl.push(listMod.places[1])
+//     ftl.push(listMod.places[2])
 
-    res.render("general/home", {
-        title: "Air BnB home",
-        places: ftl
-    });
-});
+//     res.render("general/home", {
+//         title: "Air BnB home",
+//         places: ftl
+//     });
+// });
 
 router.get("/login", (req,res)=>{
     res.render("general/login", {
