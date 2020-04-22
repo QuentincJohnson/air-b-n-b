@@ -207,6 +207,7 @@ router.post("/reg-list",(req,res)=>
     description: req.body.description,
     price: req.body.price,
     fetured: req.body.fetured,
+    createdBy: req.session.userInfo.email,
     picString: "filler"
     }
 
@@ -221,7 +222,7 @@ router.post("/reg-list",(req,res)=>
                 picString: req.files.roomPic.name
             })
             .then(()=>{
-                res.redirect("/")
+                res.redirect("/dash")
             })
             .catch(()=>{
 

@@ -1,15 +1,15 @@
-<h1 class="list-title">Listings</h1>
+<h1 class="list-title">My Listings</h1>
 
 {{#each data}}
 <section class="promo mobile-pad">
     <h1 class="promo-head">{{this.title}}</h1>
     <section class="promo-content">
-        <div class="promo-img"><img src="uploads/{{this.picString}}" alt="list-img"></div>
+        <div class="promo-img"><img src="/uploads/{{this.picString}}" alt="list-img"></div>
         <div>
             <h2>{{this.location}}</h2>
             <h2>${{this.price}}</h2>
             <p>{{this.description}}</p>
-            <a href="">Learn More</a>
+            <a href="/registration/edit/{{this._id}}">edit</a>
         </div>
     </section>
 </section>

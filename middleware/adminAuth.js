@@ -1,6 +1,8 @@
 const isAdmin = (req,res,next)=>{
-    if(req.session.userInfo){
+    console.log(req.session.userInfo)
+    if(res.locals.user){   
         if(req.session.userInfo.admin=='yes'){
+            
             next();
         }
         else
@@ -9,9 +11,12 @@ const isAdmin = (req,res,next)=>{
         )
        
     }
-    else(
+    else{
         res.redirect('/')
-    )
+    }
+       
+       
+    
 }
 
 module.exports = isAdmin

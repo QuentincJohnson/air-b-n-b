@@ -33,6 +33,22 @@ app.use(bodyParser.urlencoded({ extended: false }))//awknowladges body parser
 
 app.use(express.static("public")) //sets public as a static folder
 
+app.use((req,res,next)=>{// when righting middlewere it like a route, but we need to add nexr so it moves on the the next middle were/ routes
+    if(req.query.method=="PUT") // this test to see if theres a querystring with the name method. then tests what string comes after (in this case PUT)to handle cases of other string wurys
+    {
+       req.method="PUT"// this method refers to the HTTP request(GET,POST,etc) and is diffrent from above 
+//this cahnges the http method to a put 
+    }
+    //this handles the if method variable = delete
+    else if(req.query.method=="DELETE")
+    {
+        req.method="DELETE"
+    }
+    //you must call next() to move on to your routes
+    next();
+
+});
+
 app.use(fileUpload());//lets you upload files
 
 

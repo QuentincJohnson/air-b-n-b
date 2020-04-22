@@ -191,7 +191,6 @@ body{
 }
 
 .promo-img{
-    background-image: url("/img/promo.jpg");
     box-sizing: border-box;
     background-size: cover;;
     padding: 1rem;

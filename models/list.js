@@ -38,7 +38,7 @@ const listSchema = new Schema({
       default: Date.now()
   },
   createdBy:{
-
+      type: String
   }
 
   // for every schema you create (which is for every collection) you must also creat a model 
