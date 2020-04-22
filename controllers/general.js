@@ -5,6 +5,8 @@ const bcrypt = require('bcryptjs')
 const listMod = require('../models/listings-list') //not a thiird party packge and gets special treatment add ./
 const listModel = require('../models/list.js');
 const path = require("path")
+const isLoggedIn = require('../middleware/auth.js')
+const isAdmin = require('../middleware/adminAuth.js')
 
 
 router.get("/", (req,res)=>{
@@ -25,7 +27,7 @@ router.get("/login", (req,res)=>{
     });
 });
 
-router.get("/dash", (req,res)=>{
+router.get("/dash", isLoggedIn, (req,res)=>{
     res.render("general/dash", {
         title: "dashboard"
     });
@@ -134,7 +136,7 @@ router.post("/reg",(req,res)=>
         };
         sgMail.send(msg)
         .then(()=>{
-            res.render("general/dash");
+            res.redirect("/dash");
         })  
         .catch(()=>{
             console.log('error sending email')

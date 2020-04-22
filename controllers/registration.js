@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const userModel = require('../models/user.js');
+const isAdmin = require('../middleware/adminAuth.js')
 
 
 
@@ -10,7 +11,7 @@ router.get("", (req,res)=>{
      });
 });
 
-router.get("/make", (req,res)=>{
+router.get("/make", isAdmin, (req,res)=>{
    res.render("general/make", {
       title: "Air BnB create"
    });
