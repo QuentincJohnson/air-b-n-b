@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router();
 const userModel = require('../models/user.js');
-
+const bcrypt = require('bcryptjs')
 const listMod = require('../models/listings-list') //not a thiird party packge and gets special treatment add ./
 const listModel = require('../models/list.js');
 const path = require("path")
@@ -33,24 +33,60 @@ router.get("/dash", (req,res)=>{
 
 router.post("/login",(req,res)=>{
 
-    const errors2 = []
+    //find by id only lets u search by id findone lets u search any
 
-    if (req.body.Username == ""){
-        errors2.push("*Username: field empty")
-    }
-    if (req.body.Password == ""){
-        errors2.push("*Password: field empty")
-    }
-    if (errors2.length > 0){
-        res.render("general/home", {
-            homeMsg: errors2
-        })
-    }
-    
-    else {
-        res.render("general/home")            
-    }
+    //because find ONe returns the entier user document we need to hanle errors in the .then
+    userModel.findOne({email: req.body.Username})
+    .then(function(user){
+
+        var errors2 = [];
+
+        //email not found
+        if(user==null){
+
+            errors2.push('email or password incorrect')
+            res.render('general/home',{
+                homeMsg: errors2
+            })
+        }
+
+        else{
+     
+            bcrypt.compare(req.body.Password, user.password)//this compares a encryptied password and the given password
+            //returns a variable with true or false if its true they proceed if not render error
+            .then(function(isMatch){
+
+                if(isMatch){
+                    //creats a sesion for a user so the browser knows thier data
+                    req.session.userInfo= user
+                    res.redirect("/dash")
+                }
+
+                else{
+                    errors2.push('email or password incorrect')
+                    res.render("general/home",{
+                        homeMsg: errors2
+                    })
+                }
+
+            })
+            .catch(function(err){
+                console.log(err)
+                console.log("issue")
+
+            })
+        }
+
+    })
+    .catch(function(err){
+        console.log(err)
+    })
 });
+
+router.get("/logout",(req,res)=>{
+    req.session.destroy();
+    res.redirect("/")
+})
 
 router.post("/reg",(req,res)=>
 { 
@@ -68,6 +104,7 @@ router.post("/reg",(req,res)=>
     lastName: req.body.LastName,
     email: req.body.Email,
     phoneNumber: req.body.PhoneNumber,
+    admin: req.body.Admin,
     password: req.body.Password,
     }
 
@@ -200,75 +237,5 @@ router.post("/reg-list",(req,res)=>
     })
 
 });
-
-
-
-
-//  router.post("/registration",(req,res)=>{
-
-//     const errors = []
-
-//     if (req.body.FirstName == ""){
-//         errors.push("*First Name: field empty")
-//     }
-//     if (req.body.LastName == ""){
-//         errors.push("*Last Name: field empty")
-//     }
-
-//     if (req.body.Email == ""){
-//         errors.push("*Email: feield empty")
-//     }
-//     if (req.body.Email != ""){
-//         const str = req.body.Email;
-//         if (str.includes("@") == false) {
-//             errors.push("*Not a Valid Email")
-//         }
-//     }
-
-//     if (req.body.PhoneNumber == ""){
-//         errors.push("*Phone Number: field empty")
-//     }
-
-//     const pass = req.body.Password;
-
-//     if (pass == ""){
-//         errors.push("*Password: field empty")
-//     }
-//     if (pass.length < 6) {
-//         errors.push("Password MUST be longer thst 6 charecters")
-//     }
-//     if (errors.length > 0){
-//         res.render("general/reg", {
-//             messages: errors
-//         })
-//     }
-//     else {
-//         const accountSid = process.env.TWILIO_SID;
-//         const authToken = process.env.TWILIO_TOKEN;
-//         const client = require('twilio')(accountSid, authToken);
-
-//         client.messages
-//             .create({
-//                  body: `From: ${req.body.FirstName} ${req.body.LastName} Varification Code : 13348`,
-//                  from: `14805088628`,
-//                  to: `${req.body.PhoneNumber}`
-//             })
-//             .then(message => {
-//                 console.log(message.sid);
-//             });
-//         const sgMail = require('@sendgrid/mail');
-//         sgMail.setApiKey(process.env.SENDGRID_KEY);
-//         const msg = {
-//             to: `${req.body.Email}`,
-//             from: "AirBnB@Send.org",
-//             subject: "Continue sign up",
-//             html: '<strong> to continue signup process click link ______________</strong>',
-//         };
-//         sgMail.send(msg)
-//         .then(()=>{
-//             res.render("general/dash");
-//         });          
-//     }
-// });
 
 module.exports = router;

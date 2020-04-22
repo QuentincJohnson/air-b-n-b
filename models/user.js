@@ -22,6 +22,9 @@ const userSchema = new Schema({
       type: String,
       required: true
   },
+  admin:{
+      type: String,
+  },
   //GOOD PRACTICE
   dateCreated:{ // mark when somthings created for the database
       type: Date,

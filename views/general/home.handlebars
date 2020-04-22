@@ -38,6 +38,8 @@
         </section>
 
         {{!-- login --}}
+        {{#if user}}
+        {{else}}
         <section>
             <div class="middle">
                 <h1>Login</h1>
@@ -56,8 +58,9 @@
                     <p class="acc-owned">dont have an account? <a href="registration">Sign Up!</a></p>
                 </form>
             </div>
-
         </section>
+
+        {{/if}}
     </div>
 </section>
 

@@ -17,8 +17,17 @@
         <nav class="left-align"> 
             <ul class="line-up">
                 <li><a href="/listing">Listings</a></li>
+                {{#if user}}
                 <li><a href="/registration/make">Host</a></li>
+                {{else}}
+                <li><a href=''>Host</a></li>
+                {{/if}}
+                
+                {{#if user}}
+                <li><a href="/logout">Logout</a></li>
+                {{else}}
                 <li><a href="/registration">Sign Up</a></li>
+                {{/if}}
             </ul>
         </nav>
     </header>
